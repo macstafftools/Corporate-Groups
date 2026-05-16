@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MacSailing · Corporate Group Program Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+
+
+:root{--blue:#0056A0;--mid:#3A7FC1;--pale:#D6E8F7;--dark:#0D3A6B;--deep:#07223F;--off:#F5F8FC;--text:#1a2e3b;--muted:#5a7a96;--border:#D0DDED;--accent:#F4A24D;--success:#2E9E6B;--danger:#C0392B;--warn:#E67E22;--purple:#6D28D9;--r:10px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Lato',sans-serif;background:#fff;color:var(--text);min-height:100vh}
+
+/* ROLE TOGGLE */
+#role-toggle{position:sticky;top:0;z-index:50;background:white;border-bottom:1px solid var(--border);padding:10px 20px;display:flex;align-items:center;justify-content:center;gap:8px}
+.toggle-btn{padding:8px 22px;border-radius:20px;font-family:'Lato',sans-serif;font-size:.82rem;font-weight:700;cursor:pointer;border:1.5px solid var(--border);background:white;color:var(--muted);transition:all .2s}
+.toggle-btn.active{background:var(--blue);color:white;border-color:var(--blue)}
+.toggle-label{font-size:.78rem;color:var(--muted);font-weight:700;margin-right:4px}
+
+/* ROLE SECTIONS */
+.lead-only{display:block}
+.support-only{display:none}
+body.support-view .lead-only{display:none}
+body.support-view .support-only{display:block}
+body.support-view .lead-badge{display:none}
+body.support-view .support-badge{display:inline-block}
+.lead-badge{display:inline-block}
+.support-badge{display:none}
+
+/* HERO */
+.hero{background:linear-gradient(140deg,var(--deep) 0%,var(--dark) 55%,var(--blue) 100%);padding:40px 32px 36px;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:50px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 50'%3E%3Cpath fill='%23F5F8FC' d='M0,25L80,28C160,32,320,38,480,36C640,34,800,25,960,22C1120,19,1280,23,1360,26L1440,28L1440,50L0,50Z'/%3E%3C/svg%3E") no-repeat bottom;background-size:cover}
+.hero img{width:130px;margin-bottom:18px;display:block}
+.hero .tag{display:inline-block;background:rgba(244,162,77,.18);border:1px solid rgba(244,162,77,.5);color:var(--accent);font-size:.62rem;text-transform:uppercase;letter-spacing:.18em;padding:4px 12px;border-radius:20px;margin-bottom:10px;font-weight:700}
+.hero h1{font-weight:900;color:white;font-size:clamp(1.6rem,4vw,2.2rem);line-height:1.1;margin-bottom:8px}
+.hero p{color:rgba(255,255,255,.62);font-size:.9rem;max-width:520px;line-height:1.65}
+
+/* LAYOUT */
+.page{background:var(--off);padding:20px 20px 40px}
+.card{background:white;border:1px solid var(--border);border-radius:var(--r);margin-bottom:16px;overflow:hidden}
+.card-hdr{padding:11px 18px;display:flex;align-items:center;gap:8px}
+.card-hdr.blue{background:var(--pale);border-bottom:2px solid var(--blue)}
+.card-hdr.blue p{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--blue)}
+.card-hdr.green{background:#EDFBF3;border-bottom:2px solid var(--success)}
+.card-hdr.green p{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#1A7048}
+.card-hdr.amber{background:#FFF5EB;border-bottom:2px solid var(--warn)}
+.card-hdr.amber p{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#A65100}
+.card-hdr.red{background:#FEF2F2;border-bottom:2px solid var(--danger)}
+.card-hdr.red p{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--danger)}
+.card-hdr.dark{background:var(--blue);border-bottom:none}
+.card-hdr.dark p{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:white}
+.card-body{padding:14px 18px}
+h3.sub{font-size:13px;font-weight:700;color:var(--blue);margin:16px 0 8px}
+h3.sub:first-child{margin-top:0}
+p.lead{font-size:.88rem;color:var(--muted);line-height:1.7;margin-bottom:12px}
+ul.st{list-style:none;display:flex;flex-direction:column;gap:5px;margin-bottom:10px}
+ul.st li{font-size:.86rem;color:var(--text);padding-left:14px;position:relative;line-height:1.5}
+ul.st li::before{content:'▸';position:absolute;left:0;color:var(--mid);font-size:.65rem;top:4px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:12px}
+.inner-card{background:var(--off);border-radius:8px;padding:12px 14px}
+.inner-card h4{font-size:.82rem;font-weight:700;color:var(--blue);margin-bottom:6px}
+.al{border-radius:8px;padding:11px 14px;margin-bottom:10px;display:flex;gap:10px;align-items:flex-start}
+.al-i{background:var(--pale);border-left:3px solid var(--mid)}
+.al-s{background:#EDFBF3;border-left:3px solid var(--success)}
+.al-w{background:#FFF5EB;border-left:3px solid var(--warn)}
+.al-d{background:#FEF2F2;border-left:3px solid var(--danger)}
+.ai{font-size:1rem;flex-shrink:0;margin-top:1px}
+.at{font-size:.83rem;line-height:1.6;color:var(--text)}
+.at strong{font-weight:700}
+.tw{overflow-x:auto;margin-bottom:10px}
+table{width:100%;border-collapse:collapse;font-size:.82rem}
+th{background:var(--blue);color:white;padding:8px 12px;text-align:left;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;font-weight:700}
+th:first-child{border-radius:5px 0 0 0}th:last-child{border-radius:0 5px 0 0}
+td{padding:8px 12px;border-bottom:1px solid var(--border);color:var(--text);vertical-align:top;font-size:.83rem}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--off)}
+
+/* TIMELINE */
+.timeline{display:flex;flex-direction:column;gap:0}
+.tblock{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--border)}
+.tblock:last-child{border-bottom:none}
+.ttime{min-width:72px;font-size:.78rem;font-weight:700;color:var(--blue);padding-top:2px;flex-shrink:0}
+.tcontent{flex:1}
+.tcontent h4{font-size:.9rem;font-weight:700;color:var(--text);margin-bottom:4px}
+.tcontent p{font-size:.83rem;color:var(--muted);line-height:1.55;margin-bottom:4px}
+.phase-badge{display:inline-block;font-size:.68rem;font-weight:700;padding:2px 8px;border-radius:10px;margin-bottom:5px}
+.phase-badge.prep{background:#FFF5EB;color:#A65100}
+.phase-badge.brief{background:var(--pale);color:var(--blue)}
+.phase-badge.water{background:#EDFBF3;color:#1A7048}
+.phase-badge.land{background:#F3F0FD;color:var(--purple)}
+.phase-badge.wrap{background:var(--off);color:var(--muted)}
+
+/* ROLE CARDS */
+.role-card{border-radius:8px;padding:12px 14px;margin-bottom:8px;border-left:4px solid}
+.role-card.lead{background:var(--pale);border-color:var(--blue)}
+.role-card.lead h4{color:var(--blue);font-size:.82rem;font-weight:700;margin-bottom:5px}
+.role-card.beach{background:#EDFBF3;border-color:var(--success)}
+.role-card.beach h4{color:#1A7048;font-size:.82rem;font-weight:700;margin-bottom:5px}
+.role-card.support{background:#FFF5EB;border-color:var(--warn)}
+.role-card.support h4{color:#A65100;font-size:.82rem;font-weight:700;margin-bottom:5px}
+.role-card.hobie{background:#F3F0FD;border-color:var(--purple)}
+.role-card.hobie h4{color:var(--purple);font-size:.82rem;font-weight:700;margin-bottom:5px}
+
+/* STAFFING TABLE */
+.staff-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)}
+.staff-row:last-child{border-bottom:none}
+.staff-num{font-size:1.1rem;font-weight:900;color:var(--blue);min-width:36px}
+.staff-info h4{font-size:.88rem;font-weight:700;color:var(--text)}
+.staff-info p{font-size:.78rem;color:var(--muted)}
+
+@media(max-width:600px){.g2,.g3{grid-template-columns:1fr}}
+
+.corp-card{border-radius:8px;padding:14px 16px;margin-bottom:10px;border-left:4px solid}
+.corp-card.energy{background:#FFF5EB;border-color:var(--warn)}
+.corp-card.energy h4{color:#A65100;font-size:.88rem;font-weight:700;margin-bottom:5px}
+.corp-card.collab{background:#EDFBF3;border-color:var(--success)}
+.corp-card.collab h4{color:#1A7048;font-size:.88rem;font-weight:700;margin-bottom:5px}
+.corp-card.compete{background:var(--pale);border-color:var(--blue)}
+.corp-card.compete h4{color:var(--blue);font-size:.88rem;font-weight:700;margin-bottom:5px}
+.corp-card.mixed{background:#F3F0FD;border-color:var(--purple)}
+.corp-card.mixed h4{color:var(--purple);font-size:.88rem;font-weight:700;margin-bottom:5px}
+
+
+/* ACCORDION */
+.acc-item{background:white;border:1px solid var(--border);border-radius:var(--r);margin-bottom:10px;overflow:hidden}
+.acc-hdr{padding:14px 18px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;transition:background .15s;user-select:none}
+.acc-hdr:hover{background:var(--off)}
+.acc-hdr.open{background:var(--pale)}
+.acc-hdr.open .acc-title{color:var(--blue)}
+.acc-hdr.open .acc-chevron{transform:rotate(180deg)}
+.acc-title{font-size:13px;font-weight:700;color:var(--text);display:flex;align-items:center;gap:10px}
+.acc-title .acc-icon{font-size:1rem}
+.acc-chevron{color:var(--muted);font-size:.75rem;transition:transform .25s;flex-shrink:0}
+.acc-body{display:none;padding:14px 18px;border-top:1px solid var(--border)}
+.acc-body.open{display:block}
+.acc-hdr.blue-hdr{background:var(--pale);border-bottom:2px solid var(--blue)}
+.acc-hdr.blue-hdr .acc-title{color:var(--blue)}
+.acc-hdr.green-hdr{background:#EDFBF3;border-bottom:2px solid var(--success)}
+.acc-hdr.green-hdr .acc-title{color:#1A7048}
+.acc-hdr.amber-hdr{background:#FFF5EB;border-bottom:2px solid var(--warn)}
+.acc-hdr.amber-hdr .acc-title{color:#A65100}
+.acc-hdr.red-hdr{background:#FEF2F2;border-bottom:2px solid var(--danger)}
+.acc-hdr.red-hdr .acc-title{color:var(--danger)}
+.acc-hdr.dark-hdr{background:var(--blue)}
+.acc-hdr.dark-hdr .acc-title{color:white}
+.acc-hdr.dark-hdr .acc-chevron{color:rgba(255,255,255,.7)}
+
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="tag">Training Add-On · Staff Hub</div>
+  <h1>Corporate Group Program Guide</h1>
+  <p>Team building on the water. Up to 24 participants or run in shifts.</p>
+</div>
+
+<div id="role-toggle">
+  <span class="toggle-label">Viewing as:</span>
+  <button class="toggle-btn active" id="btn-lead" onclick="setRole('lead')">Lead Instructor</button>
+  <button class="toggle-btn" id="btn-support" onclick="setRole('support')">Support Instructor</button>
+</div>
+
+
+<div class="page">
+<div style="display:flex;justify-content:flex-end;gap:8px;padding:0 0 12px">
+  <button onclick="openAll()" style="background:none;border:1px solid var(--border);border-radius:6px;padding:5px 12px;font-size:.78rem;color:var(--muted);cursor:pointer;font-family:Lato,sans-serif">Expand all</button>
+  <button onclick="closeAll()" style="background:none;border:1px solid var(--border);border-radius:6px;padding:5px 12px;font-size:.78rem;color:var(--muted);cursor:pointer;font-family:Lato,sans-serif">Collapse all</button>
+</div>
+
+
+<!-- OVERVIEW -->
+<div class="acc-item">
+  <div class="acc-hdr blue-hdr open" onclick="toggleAcc(this)">
+    <span class="acc-title"><span class="acc-icon">📋</span>Program Overview</span>
+    <span class="acc-chevron">▼</span>
+  </div>
+  <div class="acc-body open">
+    <p class="lead">Corporate groups are team-building experiences on the water. The goal is not sailing instruction — it is connection, laughter, and a shared challenge. These clients are paying for an experience. Professionalism, energy, and hospitality matter as much as the sailing itself.</p>
+    <div class="g3">
+      <div class="inner-card"><h4>🎯 Goal</h4><p style="font-size:.83rem;color:var(--muted);line-height:1.55">Fun, memorable, safe. Team bonds on the water. Every participant leaves with a story.</p></div>
+      <div class="inner-card"><h4>⏱️ Format</h4><p style="font-size:.83rem;color:var(--muted);line-height:1.55">3 hours. Up to 24 participants. Larger groups run in shifts — office confirms format before the day.</p></div>
+      <div class="inner-card"><h4>👥 Group dynamics</h4><p style="font-size:.83rem;color:var(--muted);line-height:1.55">Mixed ability, mixed enthusiasm. Some will be excited — some won't want to be there. Your job is to bring both groups along.</p></div>
+    </div>
+    <div class="tw"><table>
+      <tr><th>Boat</th><th>Participants per boat</th><th>When to use</th></tr>
+      <tr><td><strong>RS Zest</strong></td><td>2–3 participants</td><td>Standard — most corporate groups</td></tr>
+      <tr><td><strong>Escape</strong></td><td>2–3 participants</td><td>Larger groups — run alongside Zests</td></tr>
+      <tr><td><strong>Hobie Getaway</strong></td><td>Up to 4 participants + coach</td><td>Great for corporate — more social, coach in the boat</td></tr>
+    </table></div>
+    <div class="al al-i"><div class="ai">🚢</div><div class="at"><strong>Hobie advantage for corporate:</strong> Having a coach in the Hobie with participants creates a more guided, social experience. Great for less confident participants or anyone who wants more hands-on time with an instructor.</div></div>
+  </div>
+</div>
+
+<!-- KNOW YOUR GROUP -->
+<div class="acc-item">
+  <div class="acc-hdr blue-hdr open" onclick="toggleAcc(this)">
+    <span class="acc-title"><span class="acc-icon">📋</span>Know Your Group Before They Arrive</span>
+    <span class="acc-chevron">▼</span>
+  </div>
+  <div class="acc-body open">
+    <div class="card-body">
+    <p class="lead">Corporate groups vary more than any other program. Check with the office before the session — they have the booking details and any client requests.</p>
+    <div class="lead-only">
+      <h3 class="sub">Questions to ask admin before the session</h3>
+      <ul class="st">
+        <li>How many participants and are there any shifts?</li>
+        <li>Is there a key contact person from the company — who is it?</li>
+        <li>Any specific requests from the client — races, photos, specific activities?</li>
+        <li>Any participants with mobility issues, injuries, or concerns flagged?</li>
+        <li>Waivers — all signed before arrival or collect on the day?</li>
+        <li>Any catering, setup, or branding requests?</li>
+      </ul>
+  </div>
+</div>
+
+    <h3 class="sub">Common group types</h3>
+    <div class="g2">
+      <div class="corp-card energy"><h4>⚡ High energy — here to compete</h4><p style="font-size:.83rem;color:var(--muted);line-height:1.55">Want races, challenges, and a winner. Run a structured regatta-style session. Keep score. Announce results at the debrief.</p></div>
+      <div class="corp-card collab"><h4>🤝 Team building — here to connect</h4><p style="font-size:.83rem;color:var(--muted);line-height:1.55">Want collaboration and shared experience. Pair people who don't usually work together. Focus on communication drills and follow-the-leader.</p></div>
+      <div class="corp-card compete"><h4>🎉 Social — here to have fun</h4><p style="font-size:.83rem;color:var(--muted);line-height:1.55">No agenda beyond a good time. Keep it light, encourage laughs, and make sure everyone feels included. Capsize recovery can be a highlight — frame it as fun, not scary.</p></div>
+      <div class="corp-card mixed"><h4>😐 Mixed enthusiasm</h4><p style="font-size:.83rem;color:var(--muted);line-height:1.55">Someone didn't choose to be here. Find them early, get them in a boat quickly, give them a small win. Most reluctant participants come around — meet them where they are.</p></div>
+    </div>
+    <div class="al al-w"><div class="ai">💡</div><div class="at"><strong>The reluctant participant:</strong> Don't single them out or push. Pair them with an enthusiastic colleague. Put a coach in their boat. Give them something they can succeed at quickly. Most will come around — but if they genuinely don't want to be on the water, don't force it. Let them watch and stay involved on shore.</div></div>
+  </div>
+</div>
+
+<!-- STAFFING -->
+<div class="acc-item">
+  <div class="acc-hdr blue-hdr" onclick="toggleAcc(this)">
+    <span class="acc-title"><span class="acc-icon">📋</span>Staffing & Roles</span>
+    <span class="acc-chevron">▼</span>
+  </div>
+  <div class="acc-body">
+    <div class="card-body">
+    <div class="tw"><table>
+      <tr><th>Group size</th><th>Lead</th><th>Support</th><th>Beach Manager</th><th>Coach Boats</th></tr>
+      <tr><td>Up to 12</td><td>1</td><td>2–3</td><td>1</td><td>2–3</td></tr>
+      <tr><td>12–24</td><td>1</td><td>4–5</td><td>1</td><td>3–5</td></tr>
+      <tr><td>24+ (shifts)</td><td>1 per shift</td><td>Scale per shift</td><td>1 across shifts</td><td>Scale per shift</td></tr>
+    </table>
+  </div>
+</div>
+
+    <h3 class="sub">Roles at a glance</h3>
+    <div class="g2">
+      <div class="role-card lead"><h4>👤 Lead Instructor</h4><ul class="st">
+        <li>Liaises with client contact on the day</li>
+        <li>Runs the land briefing — high energy, welcoming</li>
+        <li>Oversees launch and on-water session</li>
+        <li>Manages any reluctant participants</li>
+        <li>Calls contingencies</li>
+        <li>Leads group debrief and wrap-up</li>
+        <li>Logs the session after</li>
+      </ul></div>
+      <div class="role-card beach"><h4>🏖️ Beach Manager</h4><ul class="st">
+        <li>Gear ready before group arrives</li>
+        <li>Welcoming presence at arrival — first face they see</li>
+        <li>PFD and wetsuit fitting</li>
+        <li>Manages launch zone</li>
+        <li>Radio monitor on shore</li>
+        <li>Gear return and lost & found</li>
+      </ul></div>
+      <div class="role-card support"><h4>⛵ Support Instructor</h4><ul class="st">
+        <li>Rig boats before group arrives</li>
+        <li>Help participants gear up — friendly and warm</li>
+        <li>On-water coaching — keep it encouraging</li>
+        <li>Run activities and drills as directed by lead</li>
+        <li>Guide boats back in</li>
+        <li>Assist de-rig</li>
+      </ul></div>
+      <div class="role-card hobie"><h4>🚢 Hobie Coach</h4><ul class="st">
+        <li>Sail with up to 4 participants — coach in the boat</li>
+        <li>Ideal for less confident or VIP participants</li>
+        <li>Keep the energy positive and social</li>
+        <li>Radio on — respond when lead calls</li>
+      </ul></div>
+    </div>
+  </div>
+</div>
+
+<!-- PRE-ARRIVAL -->
+<div class="acc-item">
+  <div class="acc-hdr amber-hdr" onclick="toggleAcc(this)">
+    <span class="acc-title"><span class="acc-icon">🔧</span>Pre-Arrival Setup (30 min before)</span>
+    <span class="acc-chevron">▼</span>
+  </div>
+  <div class="acc-body">
+    <div class="g2">
+      <div class="lead-only">
+        <div class="role-card lead"><h4>👤 Lead Instructor</h4><ul class="st">
+          <li>Confirm group size, format, and any special requests with admin</li>
+          <li>Check wind and weather — have contingency plan ready</li>
+          <li>Brief all support staff — roles, activities planned, client context</li>
+          <li>Know the client contact name before they arrive</li>
+          <li>Set the course — make it visible and well-positioned</li>
+          <li>Have activities planned: follow the leader, relay race, regatta format</li>
+        </ul></div>
+      </div>
+      <div class="support-only">
+        <div class="role-card support"><h4>⛵ Support Instructor</h4><ul class="st">
+          <li>Rig boats — no jib on Zests</li>
+          <li>Check plugs, rudders, and safety gear</li>
+          <li>Stage boats neatly — presentation matters for corporate</li>
+          <li>Area looking clean and professional before group arrives</li>
+          <li>Report any gear issues to lead immediately</li>
+        </ul></div>
+      </div>
+      <div>
+        <div class="role-card beach"><h4>🏖️ Beach Manager</h4><ul class="st">
+          <li>Wetsuits organized and gear station ready</li>
+          <li>Life jackets opened and ready</li>
+          <li>Classroom set up — clean, chairs ready, whiteboard if needed</li>
+          <li>Site looking sharp — corporate clients notice presentation</li>
+          <li>Confirm waivers with office</li>
+        </ul></div>
+      </div>
+    </div>
+    <div class="al al-i"><div class="ai">🏢</div><div class="at"><strong>Presentation standard:</strong> Corporate clients see MacSailing as a reflection of the experience they're providing their team. The site, gear, and staff should look sharp from the moment they arrive. First impressions set the tone for the whole session.</div></div>
+  </div>
+</div>
+
+<!-- SESSION TIMELINE -->
+<div class="acc-item">
+  <div class="acc-hdr green-hdr" onclick="toggleAcc(this)">
+    <span class="acc-title"><span class="acc-icon">⛵</span>Session Timeline — 3 Hours</span>
+    <span class="acc-chevron">▼</span>
+  </div>
+  <div class="acc-body">
+    <div class="timeline">
+
+      <div class="tblock">
+        <div class="ttime">0:00–0:30</div>
+        <div class="tcontent">
+          <span class="phase-badge brief">Briefing</span>
+          <h4>Welcome &amp; Land Instruction</h4>
+          <div class="lead-only">
+            <div class="role-card lead" style="margin-top:8px"><h4>👤 Lead runs the briefing — high energy, warm, confident</h4><ul class="st">
+              <li><strong>Welcome (3 min)</strong> — introduce yourself and the team by name. Acknowledge the company. "Welcome to MacSailing — we're going to get you on the water today."</li>
+              <li><strong>Safety (5 min)</strong> — lifejackets always on near water, capsize is normal and recoverable, who to call if you need help</li>
+              <li><strong>Boat parts (5 min)</strong> — keep it light. Tiller like a microphone, flat sail goes, flappy sail slows. Don't overload them with theory.</li>
+              <li><strong>Tacking (5 min)</strong> — demo on a boat on shore. Run through the steps once together. Keep it simple.</li>
+              <li><strong>The plan (2 min)</strong> — tell them what's happening. "We'll spend about 75 minutes on the water — you'll be surprised how quickly you get it."</li>
+              <li><strong>Energy check</strong> — read the room. If they're nervous, reassure. If they're pumped, match it.</li>
+            </ul></div>
+          </div>
+          <div class="support-only">
+            <div class="role-card support" style="margin-top:8px"><h4>⛵ Support during briefing</h4><ul class="st">
+              <li>Launch coach boats</li>
+              <li>Final boat checks</li>
+              <li>Be visible and welcoming — smile, introduce yourself to participants near you</li>
+              <li>Help with any late arrivals quietly</li>
+            </ul></div>
+          </div>
+  </div>
+</div>
+
+      <div class="tblock">
+        <div class="ttime">0:30–1:00</div>
+        <div class="tcontent">
+          <span class="phase-badge brief">Gear Up</span>
+          <h4>Gear Up, Grouping &amp; Launch Prep</h4>
+          <div class="g2" style="margin-top:8px">
+            <div class="role-card lead lead-only"><h4>👤 Lead</h4><ul class="st">
+              <li>Monitor groupings — mix teams across departments where possible</li>
+              <li>Identify any reluctant participants — assign a support instructor or Hobie</li>
+              <li>Quick land tacking practice — 2–3 minutes, keep it fun</li>
+            </ul></div>
+            <div class="role-card support"><h4>⛵ Support / Beach Manager</h4><ul class="st">
+              <li>Help with PFDs and wetsuits — keep it efficient and friendly</li>
+              <li>Pair participants into boats — balanced energy levels</li>
+              <li>Keep the atmosphere warm — chat, make them feel welcome</li>
+            </ul></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tblock">
+        <div class="ttime">1:00–2:15</div>
+        <div class="tcontent">
+          <span class="phase-badge water">On Water</span>
+          <h4>On-Water Session — 75 min</h4>
+          <div class="lead-only">
+            <div class="role-card lead" style="margin-top:8px"><h4>👤 Lead Instructor</h4><ul class="st">
+              <li>Launch in waves of 2–4 boats — same as school groups</li>
+              <li>Scale back immediately if wind exceeds 10 knots</li>
+              <li>Run structured activities — rotate based on group energy</li>
+              <li>Keep the energy high — commentate, encourage, celebrate moments</li>
+              <li>Radio communication with beach throughout</li>
+            </ul></div>
+          </div>
+          <div class="support-only">
+            <div class="role-card support" style="margin-top:8px"><h4>⛵ Support Instructor</h4><ul class="st">
+              <li>Stay with your assigned boats</li>
+              <li>Run the activity as directed by lead</li>
+              <li>Give encouragement constantly — "Yes! That's it!" works for adults too</li>
+              <li>Keep it fun — laugh with them, not at them</li>
+              <li>Radio check-ins with lead regularly</li>
+            </ul></div>
+          </div>
+
+          <h3 class="sub" style="margin-top:12px">On-Water Activities</h3>
+          <div class="tw"><table>
+            <tr><th>Activity</th><th>Format</th><th>Best for</th></tr>
+            <tr><td><strong>Follow the Leader</strong></td><td>Coach boat leads, all boats follow the same path</td><td>Warming up, building confidence, early in the session</td></tr>
+            <tr><td><strong>Tacking Figure 8</strong></td><td>Sail around two marks, tack each time</td><td>Skill development, gives everyone a clear task</td></tr>
+            <tr><td><strong>Relay Race</strong></td><td>Teams race around a course in sequence</td><td>High-energy groups, competitive teams</td></tr>
+            <tr><td><strong>Regatta</strong></td><td>Short races around a course, keep score</td><td>Groups who want competition and a winner</td></tr>
+            <tr><td><strong>Capsize Challenge</strong></td><td>Voluntary capsize and recovery — coach supported</td><td>Adventurous groups, great highlight moment</td></tr>
+          </table></div>
+          <div class="al al-w"><div class="ai">⚡</div><div class="at"><strong>Launch sequence:</strong> 1:1 to start → cap at 4 boats → scale up once stable → scale back if wind over 10 knots. Same as school groups — never rush.</div></div>
+        </div>
+      </div>
+
+      <div class="tblock">
+        <div class="ttime">2:15–2:40</div>
+        <div class="tcontent">
+          <span class="phase-badge land">Return</span>
+          <h4>Return to Shore &amp; De-rig — 25 min</h4>
+          <div class="g2" style="margin-top:8px">
+            <div class="role-card lead lead-only"><h4>👤 Lead</h4><ul class="st">
+              <li>Call all boats in via radio</li>
+              <li>Keep the energy positive as they return</li>
+              <li>Ensure boats secured and gear returned neatly</li>
+            </ul></div>
+            <div class="role-card support"><h4>⛵ Support</h4><ul class="st">
+              <li>Guide boats in 1–2 at a time</li>
+              <li>Help de-rig — keep it efficient</li>
+              <li>Keep talking to participants — "How was that? What was your best moment?"</li>
+            </ul></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tblock">
+        <div class="ttime">2:40–3:00</div>
+        <div class="tcontent">
+          <span class="phase-badge wrap">Wrap Up</span>
+          <h4>Group Debrief &amp; Farewell — 20 min</h4>
+          <div class="lead-only">
+            <div class="role-card lead" style="margin-top:8px"><h4>👤 Lead runs the wrap-up</h4><ul class="st">
+              <li>Bring the whole group together — high energy finish</li>
+              <li>If you ran a regatta or relay: announce results, celebrate the winners</li>
+              <li>Ask: "What was the highlight of the day for you?"</li>
+              <li>Acknowledge the company organizer by name — thank them for bringing the team</li>
+              <li>Tell them about Mac Crew and courses — "If anyone wants to come back..."</li>
+              <li>Professional farewell — you're the last impression they have of MacSailing</li>
+            </ul></div>
+          </div>
+          <div class="support-only">
+            <div class="role-card support" style="margin-top:8px"><h4>⛵ Support during wrap-up</h4><ul class="st">
+              <li>Engage warmly with participants</li>
+              <li>Help organize belongings and gear returns</li>
+              <li>Clear lost &amp; found</li>
+              <li>Keep the positive energy going until the last person leaves</li>
+            </ul></div>
+          </div>
+          <div class="al al-s" style="margin-top:8px"><div class="ai">🌟</div><div class="at"><strong>Last impression:</strong> The way the session ends is what they remember and what they tell their colleagues. Make the farewell warm, specific, and memorable.</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- SHIFTS -->
+<div class="acc-item">
+  <div class="acc-hdr amber-hdr" onclick="toggleAcc(this)">
+    <span class="acc-title"><span class="acc-icon">🔧</span>Running Shifts (Groups over 24)</span>
+    <span class="acc-chevron">▼</span>
+  </div>
+  <div class="acc-body">
+    <p class="lead">For groups larger than 24, the session runs in shifts. The office will confirm the format before the day — confirm with admin how many shifts and how long each is.</p>
+    <div class="g2">
+      <div>
+        <h3 class="sub">Between shifts</h3>
+        <ul class="st">
+          <li>Quick team reset — brief your support staff on any changes</li>
+          <li>Check gear is back in place and boats are ready</li>
+          <li>Check in with the client contact — anything to adjust?</li>
+          <li>Fresh energy for the new group — every shift gets the same experience</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="sub lead-only">Lead Instructor</h3>
+        <h3 class="sub support-only">Support Instructor</h3>
+        <ul class="st lead-only">
+          <li>You set the pace across all shifts</li>
+          <li>Brief each new group as if it's the first — same energy</li>
+          <li>Keep notes on any issues between shifts</li>
+          <li>Single log after the last shift covers all groups</li>
+        </ul>
+        <ul class="st support-only">
+          <li>Reset your gear and boats between shifts</li>
+          <li>Same energy for every group — don't let it drop by shift 3</li>
+          <li>Flag anything to the lead between shifts, not during</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTINGENCIES -->
+<div class="acc-item">
+  <div class="acc-hdr red-hdr" onclick="toggleAcc(this)">
+    <span class="acc-title"><span class="acc-icon">🚨</span>Contingency Plans</span>
+    <span class="acc-chevron">▼</span>
+  </div>
+  <div class="acc-body">
+    <div class="g3">
+      <div>
+        <h3 class="sub">🌬️ Heavy Wind (10+ knots)</h3>
+        <ul class="st">
+          <li>Reduce boats on water</li>
+          <li>Hobie rides for those waiting on shore</li>
+          <li>Beach station activities — knots, boat parts, photo ops</li>
+          <li>Lead makes the call — never compromise safety for a client</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="sub">🍃 Light / No Wind</h3>
+        <ul class="st">
+          <li>Still launch — paddling is part of sailing</li>
+          <li>Follow the leader behind a coach boat</li>
+          <li>Relay races work in light wind</li>
+          <li>Frame it positively — "Perfect conditions for learning"</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="sub">😤 Difficult Participant</h3>
+        <ul class="st">
+          <li>Stay calm and professional at all times</li>
+          <li>Don't engage in conflict on the water or in front of the group</li>
+          <li>Pass to manager if the situation escalates</li>
+          <li>Log it after — never address a client complaint in the moment</li>
+        </ul>
+      </div>
+    </div>
+    <div class="al al-d"><div class="ai">⚠️</div><div class="at"><strong>Client complaints:</strong> Stay calm → listen briefly → acknowledge → pass to manager. Never argue, never over-promise, never make commitments on behalf of MacSailing. Log it and let the manager handle the follow-up.</div></div>
+  </div>
+</div>
+
+<!-- POST SESSION -->
+<div class="acc-item">
+  <div class="acc-hdr blue-hdr" onclick="toggleAcc(this)">
+    <span class="acc-title"><span class="acc-icon">📋</span>Post-Session — All Staff</span>
+    <span class="acc-chevron">▼</span>
+  </div>
+  <div class="acc-body">
+    <div class="g2">
+      <div>
+        <h3 class="sub">Wrap-up tasks</h3>
+        <ul class="st">
+          <li>Rinse and dry all gear</li>
+          <li>Log equipment issues in the Repairs Log</li>
+          <li>Confirm all participants have left</li>
+          <li>Clear lost &amp; found</li>
+          <li>Return classrooms and site to standard</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="sub lead-only">Team debrief (Lead runs)</h3>
+        <h3 class="sub support-only">Team debrief</h3>
+        <ul class="st">
+          <li>What went well</li>
+          <li>What to improve for next time</li>
+          <li>Any participant or safety incidents to log</li>
+          <li>Equipment issues flagged to Aaron</li>
+          <li>Lead completes session log before leaving</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+<script>
+
+function setRole(role) {
+  const body = document.body;
+  const btnLead = document.getElementById('btn-lead');
+  const btnSupport = document.getElementById('btn-support');
+  if (role === 'support') {
+    body.classList.add('support-view');
+    btnLead.classList.remove('active');
+    btnSupport.classList.add('active');
+  } else {
+    body.classList.remove('support-view');
+    btnLead.classList.add('active');
+    btnSupport.classList.remove('active');
+  }
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+
+function toggleAcc(el) {
+  const hdr = el;
+  const body = hdr.nextElementSibling;
+  const isOpen = hdr.classList.contains('open');
+  hdr.classList.toggle('open', !isOpen);
+  body.classList.toggle('open', !isOpen);
+}
+function openAll() {
+  document.querySelectorAll('.acc-hdr').forEach(h => {
+    h.classList.add('open');
+    h.nextElementSibling.classList.add('open');
+  });
+}
+function closeAll() {
+  document.querySelectorAll('.acc-hdr').forEach(h => {
+    h.classList.remove('open');
+    h.nextElementSibling.classList.remove('open');
+  });
+}
+
+</script>
+</body>
+</html>
